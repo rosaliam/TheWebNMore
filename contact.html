@@ -5,55 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | TheWebNMore Solutions</title>
   <meta name="description" content="Book a free 30-minute QA consultation. Share your project details and we'll be in touch."/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
 
     /* ── CONTACT LAYOUT ── */
-    #contact-main { background: var(--white); padding: 7rem 5%; }
+    #contact-main { background: var(--bg3); padding: 7rem 5%; }
     .contact-grid {
       display: grid; grid-template-columns: 1fr 1.4fr;
       gap: 5rem; max-width: 1100px; margin: 0 auto;
     }
 
     /* ── INFO SIDE ── */
-    .contact-info h2 { color: var(--ink); margin-bottom: 0.5rem; }
+    .contact-info h2 { color: var(--text); margin-bottom: 0.5rem; }
     .contact-info > p { margin-bottom: 2.5rem; }
 
     .steps-list { list-style: none; margin-bottom: 3rem; }
     .step-item { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; }
     .step-badge {
       width: 40px; height: 40px; flex-shrink: 0;
-      border: 2px solid var(--gold);
+      border: 2px solid var(--blue);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; color: var(--gold); font-weight: 500;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem; color: var(--blue); font-weight: 500;
     }
-    .step-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.3rem; }
+    .step-text h4 { font-family: 'Raleway', sans-serif; font-size: 1.05rem; color: var(--text); margin-bottom: 0.3rem; }
     .step-text p { font-size: 0.87rem; margin: 0; }
 
     .info-cards { display: flex; flex-direction: column; gap: 1px; }
     .info-card {
-      background: var(--light);
+      background: var(--bg3);
       border: 1px solid var(--border-grey);
       padding: 1.4rem 1.6rem;
       display: flex; gap: 1rem; align-items: center;
       transition: border-color 0.3s;
     }
-    .info-card:hover { border-color: var(--gold); }
+    .info-card:hover { border-color: var(--blue); }
     .info-card .i-icon { font-size: 1.3rem; flex-shrink: 0; }
     .info-card h5 { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; font-weight: 400; }
-    .info-card p { font-size: 0.9rem; color: var(--ink); margin: 0; font-weight: 500; }
+    .info-card p { font-size: 0.9rem; color: var(--text); margin: 0; font-weight: 500; }
 
     /* ── FORM SIDE ── */
     .contact-form-wrap {
-      background: var(--light);
+      background: var(--bg3);
       border: 1px solid var(--border-grey);
       padding: 3rem;
     }
     .form-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; color: var(--ink); margin-bottom: 0.3rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.5rem; color: var(--text); margin-bottom: 0.3rem;
     }
     .form-subtitle { font-size: 0.87rem; margin-bottom: 2rem; }
 
@@ -66,30 +66,30 @@
     .form-group input,
     .form-group textarea,
     .form-group select {
-      width: 100%; background: var(--white);
-      border: 1px solid var(--border-grey); color: var(--ink);
+      width: 100%; background: var(--bg3);
+      border: 1px solid var(--border-grey); color: var(--text);
       padding: 0.85rem 1rem; font-size: 0.9rem;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       outline: none; transition: border-color 0.3s, box-shadow 0.3s;
       appearance: none;
     }
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(184,146,42,0.08);
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
     }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7589' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
 
     .btn-submit {
-      width: 100%; background: var(--gold); color: var(--white);
+      width: 100%; background: var(--blue); color: var(--text);
       border: none; padding: 1rem;
       font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif; font-weight: 500;
+      font-family: 'Work Sans', sans-serif; font-weight: 500;
       cursor: pointer; transition: background 0.3s;
     }
-    .btn-submit:hover { background: var(--gold-light); }
+    .btn-submit:hover { background: var(--blue-light); }
 
     .form-note { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 1rem; }
 
@@ -98,11 +98,11 @@
       display: none; text-align: center; padding: 3rem 2rem;
     }
     .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .form-success h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .form-success h3 { font-family: 'Raleway', sans-serif; font-size: 1.8rem; color: var(--text); margin-bottom: 0.5rem; }
     .form-success p { color: var(--muted); }
 
     /* ── FAQ ── */
-    #faq { background: var(--light); padding: 7rem 5%; }
+    #faq { background: var(--bg3); padding: 7rem 5%; }
     .faq-inner { max-width: 780px; margin: 0 auto; }
     .faq-item {
       border-bottom: 1px solid var(--border-grey);
@@ -111,12 +111,12 @@
       width: 100%; background: none; border: none; cursor: pointer;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.5rem 0; text-align: left;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; color: var(--ink);
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem; color: var(--text);
       transition: color 0.3s;
     }
-    .faq-q:hover { color: var(--gold); }
-    .faq-q .arrow { font-size: 1.2rem; transition: transform 0.3s; color: var(--gold); }
+    .faq-q:hover { color: var(--blue); }
+    .faq-q .arrow { font-size: 1.2rem; transition: transform 0.3s; color: var(--blue); }
     .faq-q.open .arrow { transform: rotate(45deg); }
     .faq-a {
       max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
@@ -125,11 +125,11 @@
 
     /* ── CTA BOTTOM ── */
     .contact-cta {
-      background: var(--ink); padding: 6rem 5%; text-align: center;
+      background: var(--bg); padding: 6rem 5%; text-align: center;
     }
-    .contact-cta .eyebrow { color: var(--gold); }
-    .contact-cta h2 { color: var(--white); }
-    .contact-cta h2 span { color: var(--gold); font-style: italic; }
+    .contact-cta .eyebrow { color: var(--blue); }
+    .contact-cta h2 { color: var(--text); }
+    .contact-cta h2 span { color: var(--blue); font-style: italic; }
     .contact-cta p { color: rgba(255,255,255,0.6); max-width: 500px; margin: 1rem auto 2rem; }
 
     @media (max-width: 900px) {
@@ -237,20 +237,10 @@
         <div class="form-title">Send Your Project Details</div>
         <p class="form-subtitle">Fill in the form below and you'll hear back within 1 business day with your booking link.</p>
 
-        <!--
-          FORMSPREE SETUP (one-time, free):
-          1. Go to https://formspree.io and sign up with rosaliam.pro@gmail.com
-          2. Click "New Form", name it "TheWebNMore Contact"
-          3. Copy your form ID (looks like: xpwzabcd)
-          4. Replace YOUR_FORMSPREE_ID below with that ID
-        -->
         <form id="contact-form"
-              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              action="https://formspree.io/f/xkovdedv"
               method="POST"
               onsubmit="handleSubmit(event)">
-
-          <!-- Formspree: reply-to and subject -->
-          <input type="hidden" name="_replyto" id="replyto-field"/>
           <input type="hidden" name="_subject" value="New Consultation Request — TheWebNMore Solutions"/>
 
           <div class="form-row">
@@ -266,8 +256,7 @@
 
           <div class="form-group">
             <label>Email Address *</label>
-            <input type="email" name="email" id="email" placeholder="jane@yourcompany.com" required
-              oninput="document.getElementById('replyto-field').value = this.value"/>
+            <input type="email" name="email" id="email" placeholder="jane@yourcompany.com" required/>
           </div>
 
           <div class="form-group">
@@ -307,7 +296,7 @@
           </div>
 
           <button type="submit" class="btn-submit" id="submit-btn">Send &amp; Book Free Consultation →</button>
-          <p class="form-note">🔒 Your information is kept confidential and sent directly to rosaliam.pro@gmail.com</p>
+          <p class="form-note">🔒 Clicking submit opens your email app pre-filled &amp; sends directly to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="addfc2deccc1c4ccc083dddfc2edcac0ccc4c183cec2c0">[email&#160;protected]</a></p>
         </form>
       </div>
 
@@ -328,7 +317,7 @@
 <section id="faq">
   <div class="faq-inner">
     <span class="eyebrow">FAQ</span>
-    <h2 style="color:var(--ink);">Common Questions</h2>
+    <h2 style="color:var(--text);">Common Questions</h2>
     <div class="divider"></div>
 
     <div class="faq-item">
@@ -442,7 +431,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 30);
   });
@@ -458,44 +447,25 @@
     e.preventDefault();
     const btn = document.getElementById('submit-btn');
     const form = document.getElementById('contact-form');
-
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Sending...';
     btn.disabled = true;
-
     try {
       const res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-
       if (res.ok) {
         document.getElementById('contact-form-inner').style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       } else {
-        btn.textContent = 'Send & Book Free Consultation →';
+        btn.textContent = 'Send & Book Free Consultation';
         btn.disabled = false;
         alert('Something went wrong. Please try again or email rosaliam.pro@gmail.com directly.');
       }
     } catch (err) {
-      btn.textContent = 'Send & Book Free Consultation →';
+      btn.textContent = 'Send & Book Free Consultation';
       btn.disabled = false;
-      alert('Network error. Please try again or email rosaliam.pro@gmail.com directly.');
+      alert('Network error. Please email rosaliam.pro@gmail.com directly.');
     }
-  }
-
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.classList.remove('open');
-      q.nextElementSibling.style.maxHeight = '0';
-    });
-    if (!isOpen) {
-      btn.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  }
-</script>
-</body>
-</html>
+  }c
