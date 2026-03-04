@@ -64,10 +64,10 @@ a { text-decoration: none; color: inherit; }
   font-family: 'Work Sans', sans-serif; font-weight: 600;
   transition: all 0.28s; cursor: pointer; border: none;
 }
-.btn-gold { background: #2563EB; color: #0F172A; border: 2px solid #2563EB; }
-.btn-gold:hover { background: #3B82F6; border-color: #3B82F6; }
+.btn-gold { background: #2563EB; color: #FFFFFF; border: 2px solid #2563EB; }
+.btn-gold:hover { background: #1D4ED8; border-color: #1D4ED8; color: #FFFFFF; }
 .btn-outline { background: transparent; color: #2563EB; border: 2px solid #2563EB; }
-.btn-outline:hover { background: #2563EB; color: #0F172A; }
+.btn-outline:hover { background: #2563EB; color: #FFFFFF; }
 .btn-white { background: #0F172A; color: #F8FAFC; border: 2px solid #0F172A; }
 .btn-white:hover { background: transparent; color: #0F172A; }
 

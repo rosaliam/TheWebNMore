@@ -346,7 +346,7 @@
         <button type="submit"
           class="btn-submit g-recaptcha"
           id="submit-btn"
-          data-sitekey="6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD"
+          data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
           data-callback="onCaptchaPassed"
           data-action="submit">Send &amp; Book Free Consultation</button>
         <p class="form-note">🔒 Your details are sent securely and privately.</p>
@@ -449,7 +449,12 @@
       <p>Please confirm you're human before we send your message.</p>
       <!--
         SETUP REQUIRED (one time):
-
+        1. Go to google.com/recaptcha/admin
+        2. Choose reCAPTCHA v2 → "Invisible reCAPTCHA badge"
+        3. Add domain: rosaliam.github.io
+        4. Copy Site Key + Secret Key
+        5. In Formspree → your form → Settings → Spam Protection → paste Secret Key
+        6. Replace YOUR_RECAPTCHA_SITE_KEY below in the submit button
       -->
       <button class="captcha-cancel" id="captcha-cancel-btn" onclick="closeCaptcha()">Cancel — go back to form</button>
     </div>
