@@ -448,7 +448,13 @@
       <h3>Security Check</h3>
       <p>Please confirm you're human before we send your message.</p>
       <!--
-
+        SETUP REQUIRED (one time):
+        1. Go to google.com/recaptcha/admin
+        2. Choose reCAPTCHA v2 → "Invisible reCAPTCHA badge"
+        3. Add domain: thewebnmore.github.io
+        4. Copy Site Key + Secret Key
+        5. In Formspree → your form → Settings → Spam Protection → paste Secret Key
+        6. Replace 6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD below in the submit button
       -->
       <button class="captcha-cancel" id="captcha-cancel-btn" onclick="closeCaptcha()">Cancel — go back to form</button>
     </div>
