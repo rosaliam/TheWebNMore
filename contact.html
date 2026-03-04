@@ -542,8 +542,14 @@
           document.getElementById('contact-main').scrollIntoView({ behavior: 'smooth' });
         }, 2500);
       } else {
-        overlay.classList.remove('active');
-        alert('Something went wrong. Please try again.');
+        res.json().then(data => {
+          overlay.classList.remove('active');
+          const reason = (data.errors && data.errors.map(e => e.message).join(', ')) || data.error || 'Unknown error';
+          alert('Submission failed (' + res.status + '): ' + reason);
+        }).catch(() => {
+          overlay.classList.remove('active');
+          alert('Submission failed with status: ' + res.status);
+        });
       }
     })
     .catch(() => {
