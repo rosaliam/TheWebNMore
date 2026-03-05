@@ -109,12 +109,14 @@
 
     /* ── CAPTCHA POPUP ── */
     .captcha-overlay {
-      display: none; position: fixed; inset: 0; z-index: 9999;
-      background: rgba(15,23,42,0.6);
-      backdrop-filter: blur(4px);
+      display: none; position: fixed; inset: 0; z-index: 2147483647;
+      background: rgba(15,23,42,0.75);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
       align-items: center; justify-content: center;
     }
     .captcha-overlay.active { display: flex; }
+    body.overlay-open select,
+    body.overlay-open input { visibility: hidden; }
     .captcha-box {
       background: #FFFFFF; border-radius: 16px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.2);
@@ -535,6 +537,7 @@
     pendingFormData = new FormData(document.getElementById('contact-form'));
     showState('sending');
     document.getElementById('captcha-overlay').classList.add('active');
+    document.body.classList.add('overlay-open');
 
     // Execute invisible reCAPTCHA silently — onCaptchaPassed fires automatically
     if (recaptchaWidgetId !== null) {
@@ -553,6 +556,7 @@
 
   function closeCaptcha() {
     document.getElementById('captcha-overlay').classList.remove('active');
+    document.body.classList.remove('overlay-open');
     if (recaptchaWidgetId !== null) {
       try { grecaptcha.reset(recaptchaWidgetId); } catch(err) {}
     }
@@ -575,6 +579,7 @@
         showState('success');
         setTimeout(() => {
           document.getElementById('captcha-overlay').classList.remove('active');
+    document.body.classList.remove('overlay-open');
           document.getElementById('contact-form').reset();
           showState('sending');
           if (recaptchaWidgetId !== null) {
