@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css?v=20250305"/>
   <!-- Google reCAPTCHA v2 -->
-  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD" async defer></script>
   <!-- Invisible reCAPTCHA: silent verification, no checkbox shown to user -->
   <style>
 
@@ -346,7 +346,6 @@
         </div>
 
         <button type="submit" class="btn-submit" id="submit-btn">Send &amp; Book Free Consultation</button>
-        <div id="recaptcha-widget"></div>
         <p class="form-note">🔒 Your details are sent securely and privately.</p>
       </form>
     </div>
@@ -497,21 +496,8 @@
     }
   }
 
-  // ── FORM & CAPTCHA FLOW ──
+  // ── FORM & reCAPTCHA v3 FLOW ──
   let pendingFormData = null;
-  let recaptchaWidgetId = null;
-
-  // Called by reCAPTCHA API once fully loaded (via ?onload=onRecaptchaLoad&render=explicit)
-  function onRecaptchaLoad() {
-    recaptchaWidgetId = grecaptcha.render('recaptcha-widget', {
-      sitekey: '6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD',
-      size: 'invisible',
-      callback: onCaptchaPassed,
-      'expired-callback': function() {
-        grecaptcha.reset(recaptchaWidgetId);
-      }
-    });
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -533,18 +519,22 @@
       return;
     }
 
-    // Store form data, show sending spinner immediately (reCAPTCHA runs invisibly)
+    // Store form data and show sending spinner
     pendingFormData = new FormData(document.getElementById('contact-form'));
     showState('sending');
     document.getElementById('captcha-overlay').classList.add('active');
     document.body.classList.add('overlay-open');
 
-    // Execute invisible reCAPTCHA silently — onCaptchaPassed fires automatically
-    if (recaptchaWidgetId !== null) {
-      grecaptcha.execute(recaptchaWidgetId);
-    } else {
-      onCaptchaPassed('');
-    }
+    // Execute reCAPTCHA v3 — completely invisible, score-based
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD', { action: 'submit' })
+        .then(function(token) {
+          submitForm(token);
+        })
+        .catch(function() {
+          submitForm('');
+        });
+    });
   }
 
   function showState(state) {
@@ -557,15 +547,11 @@
   function closeCaptcha() {
     document.getElementById('captcha-overlay').classList.remove('active');
     document.body.classList.remove('overlay-open');
-    if (recaptchaWidgetId !== null) {
-      try { grecaptcha.reset(recaptchaWidgetId); } catch(err) {}
-    }
     pendingFormData = null;
     showState('sending');
   }
 
-  async function onCaptchaPassed(token) {
-    showState('sending');
+  async function submitForm(token) {
     if (token) pendingFormData.append('g-recaptcha-response', token);
 
     try {
@@ -579,12 +565,9 @@
         showState('success');
         setTimeout(() => {
           document.getElementById('captcha-overlay').classList.remove('active');
-    document.body.classList.remove('overlay-open');
+          document.body.classList.remove('overlay-open');
           document.getElementById('contact-form').reset();
           showState('sending');
-          if (recaptchaWidgetId !== null) {
-            try { grecaptcha.reset(recaptchaWidgetId); } catch(err) {}
-          }
           document.getElementById('contact-main').scrollIntoView({ behavior: 'smooth' });
         }, 2500);
       } else {
