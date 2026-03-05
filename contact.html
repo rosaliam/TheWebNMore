@@ -10,9 +10,7 @@
   <meta name="description" content="Book a free 30-minute QA consultation. Share your project details and we'll be in touch."/>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css?v=20250305"/>
-  <!-- Google reCAPTCHA v2 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD" async defer></script>
-  <!-- Invisible reCAPTCHA: silent verification, no checkbox shown to user -->
+
   <style>
 
     /* ── CONTACT LAYOUT ── */
@@ -496,7 +494,7 @@
     }
   }
 
-  // ── FORM & reCAPTCHA v3 FLOW ──
+  // ── FORM SUBMIT FLOW ──
   let pendingFormData = null;
 
   function handleSubmit(e) {
@@ -519,22 +517,12 @@
       return;
     }
 
-    // Store form data and show sending spinner
+    // Show sending spinner and submit
     pendingFormData = new FormData(document.getElementById('contact-form'));
     showState('sending');
     document.getElementById('captcha-overlay').classList.add('active');
     document.body.classList.add('overlay-open');
-
-    // Execute reCAPTCHA v3 — completely invisible, score-based
-    grecaptcha.ready(function() {
-      grecaptcha.execute('6LdV9X8sAAAAAGXDPbquKTH_2B1Sq5Mtvo7tYAkD', { action: 'submit' })
-        .then(function(token) {
-          submitForm(token);
-        })
-        .catch(function() {
-          submitForm('');
-        });
-    });
+    submitForm();
   }
 
   function showState(state) {
@@ -551,9 +539,7 @@
     showState('sending');
   }
 
-  async function submitForm(token) {
-    if (token) pendingFormData.append('g-recaptcha-response', token);
-
+  async function submitForm() {
     try {
       const res = await fetch('https://formspree.io/f/xqeyzzzr', {
         method: 'POST',
